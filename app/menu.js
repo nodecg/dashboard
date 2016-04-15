@@ -28,17 +28,19 @@ module.exports = function (mw) {
 	mainWindow = mw;
 
 	ipcMain.on('loadMostRecentUrl', () => {
-		mainWindow.webContents.send('loadUrl', recentUrls.reduce((previousValue, currentValue) => {
-			if (!previousValue) {
-				return currentValue;
-			}
+		if (recentUrls.length > 0) {
+			mainWindow.webContents.send('loadUrl', recentUrls.reduce((previousValue, currentValue) => {
+				if (!previousValue) {
+					return currentValue;
+				}
 
-			if (currentValue.lastUpdated > previousValue.lastUpdated) {
-				return currentValue;
-			}
+				if (currentValue.lastUpdated > previousValue.lastUpdated) {
+					return currentValue;
+				}
 
-			return previousValue;
-		}).url);
+				return previousValue;
+			}).url);
+		}
 	});
 
 	regenerateMenu();
