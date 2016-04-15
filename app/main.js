@@ -39,7 +39,6 @@ app.on('ready', () => {
 		minHeight: 375,
 		useContentSize: true,
 		resizable: true,
-		fullscreen: false,
 		frame: true,
 		title: `NodeCG Dashboard v${version}`
 	});
