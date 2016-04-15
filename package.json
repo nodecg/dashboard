@@ -20,7 +20,24 @@
     "app-bundle-id": "com.nodecg.dashboard",
     "app-category-type": "public.app-category.utilities",
     "iconUrl": "https://raw.githubusercontent.com/nodecg/dashboard/master/build/icon.ico",
-    "productName": "NodeCG Dashboard"
+    "productName": "NodeCG Dashboard",
+    "osx": {
+      "icon-size": 128,
+      "contents": [
+        {
+          "x": 425,
+          "y": 200,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 120,
+          "y": 200,
+          "type": "file",
+          "path": "computed path to artifact, do not specify it - will be overwritten"
+        }
+      ]
+    }
   },
   "scripts": {
     "test": "npm run static",
