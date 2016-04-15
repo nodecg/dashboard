@@ -92,8 +92,13 @@ function regenerateMenu() {
 						if (!recentUrl) {
 							recentUrl = {url};
 							recentUrls.push(recentUrl);
+
+							if (recentUrls.length > 10) {
+								recentUrls.length = 10;
+							}
 						}
 						recentUrl.lastOpened = Date.now();
+						sortRecentUrls();
 
 						try {
 							fs.writeFileSync(recentPath, JSON.stringify(recentUrls), 'utf-8');
@@ -125,11 +130,10 @@ function regenerateMenu() {
 						click() {
 							mainWindow.webContents.send('loadUrl', r.url);
 							recentUrls[index].lastUpdated = Date.now();
+							sortRecentUrls();
 							regenerateMenu();
 						}
 					};
-				}).sort((a, b) => {
-					return b.lastOpened - a.lastOpened;
 				})
 			}
 		]
@@ -260,4 +264,10 @@ function regenerateMenu() {
 
 	const menu = Menu.buildFromTemplate(template);
 	Menu.setApplicationMenu(menu);
+}
+
+function sortRecentUrls() {
+	recentUrls.sort((a, b) => {
+		return b.lastOpened - a.lastOpened;
+	});
 }
