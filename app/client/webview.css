@@ -5,6 +5,10 @@ body {
 	background-color: #eee;
 }
 
+#splash {
+	margin: 0;
+}
+
 #opening,
 #splash {
 	position: absolute;
