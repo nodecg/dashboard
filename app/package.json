@@ -1,0 +1,17 @@
+{
+  "name": "nodecg-dashboard",
+  "version": "1.0.1",
+  "description": "A standalone application for displaying a NodeCG Dashboard.",
+  "dependencies": {
+    "electron-debug": "^0.6.0",
+    "electron-window-state": "2.0.0",
+    "is-url": "^1.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodecg/nodecg-dashboard.git"
+  },
+  "license": "MIT",
+  "author": "Alex Van Camp <email@alexvan.camp>",
+  "main": "main.js"
+}

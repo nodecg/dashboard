@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #loading {
+                font-family: sans-serif;
+                position: absolute;
+                left: 20px;
+            }
+
+            webview {
+                position: absolute;
+				top: 0;
+				left: 0;
+                display: inline-flex;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+
+        <!-- Hack to fix WebView loading: https://github.com/electron/electron/issues/5132 -->
+        <script>void 0</script>
+    </head>
+    <body>
+        <script src="webview.js"></script>
+    </body>
+</html>
