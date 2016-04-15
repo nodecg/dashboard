@@ -31,6 +31,8 @@ app.on('ready', () => {
 		y: mainWindowState.y,
 		width: mainWindowState.width,
 		height: mainWindowState.height,
+		minWidth: 350,
+		minHeight: 375,
 		useContentSize: true,
 		resizable: true,
 		fullscreen: false,
