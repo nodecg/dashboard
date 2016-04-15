@@ -34,4 +34,5 @@ ipcRenderer.on('loadUrl', (event, url) => {
 	openingUrl.innerText = url;
 	webview.src = url;
 	loadedUrl = url;
+	document.title = `NodeCG Dashboard - ${url}`;
 });
