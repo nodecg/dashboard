@@ -1,5 +1,9 @@
 'use strict';
 
+if (require('electron-squirrel-startup')) {
+	return;
+}
+
 const path = require('path');
 const {app, BrowserWindow, crashReporter} = require('electron');
 const windowStateKeeper = require('electron-window-state');

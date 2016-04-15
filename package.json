@@ -19,7 +19,8 @@
   "build": {
     "app-bundle-id": "com.nodecg.dashboard",
     "app-category-type": "public.app-category.utilities",
-    "iconUrl": "https://raw.githubusercontent.com/nodecg/dashboard/master/build/icon.ico"
+    "iconUrl": "https://raw.githubusercontent.com/nodecg/dashboard/master/build/icon.ico",
+    "productName": "NodeCG Dashboard"
   },
   "scripts": {
     "test": "npm run static",
