@@ -1,42 +1,37 @@
 osx_image: xcode7.3
-
 language:
 - ruby
-
 matrix:
   include:
   - os: linux
   - os: osx
-
 env:
   global:
   - NODE_VERSION=5
-
+  - secure: UKPjxSAVbim+vHMlDe7a1tR8zcsgt4vPbYGTf1ccsTwmejQWOmLQCxQeZNz77tIU9n4tYQTdDy+UWobAT62JWUW/0KkL3Cb7HlND4o5aJzCsiAymcZ4V1hpYB4mYAVEkclzKVroGLDeZyvc9QKOhpZWJpP4MUz2ReLrCgeNjG4HqhEYKxLodbp7Awze6m3RhUF//vnTXvbjPJ0Dtu5KlZEfMtdAAcjnnkXEdqo8NMkaqi2sfHRZTAllvr7u1JtX0+I8Ruftkb+E7C91kHZP7Gpal3KSvBEvrDcxci4XnKYfCKMVSnH/sI6bGTXfeQjLz31x8UYc5DpHaGzrt0J8lxzXH0WuYi4GyNZ92JE/qbp5qBQ41FnZdO+pRfBNmnt76kY/o7WEKgd7q2vjWZcEkisjw+eUXuEXrmvRFU9Xw7uHmX3KYBrJFmoztUFnXccLzNRnoiRWy7ZdFvSOx9JqnnA4YhxAVEAANjWxUA/bjLUwjfY1yJVRBsWbZEs1prqxKUIFVmGiJFicOSINljG52Q/gkXuyRjAhUHMwg79DKXbOh02fzUig8aOqq9lvZ0upac1AJbUg8Omd4DeNCxMMeyBjW5spwMOBFgZYAsEqBV5+jzaLg+0+4vYtI2t7QeII2GCbgk2y/2akNx5vprgTq913EcTHEmVzs3C75gNTZTY4=
+  - secure: GI9pZ0pkgkweS0QAho3kIv663K5s4dDm9ObvvR558BiWfTXYUE5R3ikmeMBF+lo7dsQPvpwX0mUpsccHnxA1NhH/RNHZAfQC34eHM+v+Kbwhpn2ZUK9Kog5NA2JgN/sWf4YvV6E6uPp8vGEwMCZcf8JXvUD001IUR8eAXWC3/ajq/BaAeB6qrOJwZNYNN9sK/BWzfkG3tKnOJ6YAB539oH7LkFyAd2kBAT31dNIEKtem/kE6FEYelPmQqflUW9wldLnvRbQJD2jJl2NJQ+czbqCKkdx41souKTkhMVBwsrNaiZg6h7FS+UT+tmBla15UMDbVw9ywHf+VLzqqPYkLiYOWdC6Tn2/EXLmGNpBnw7KfW8OvCJ+EvVjlkrQfc1Xj+98ph+yKnp7+JDvbATNyUtsLVGyWhdxEXnQH9Tcdx5LzwM4+WDZrOm75ojvBkeHhrD5QWVZR73PSVoZ/A6S+WwCy/H5B5zTLSS8Rbefji3jx9QTMtc3MZHNjhR4HhiMlyyjCufG9CA8GmUi2A9566xCIXg6WvaIzyA7X8VSr6W7NL4yjsCfCaf/OZNGENjY63x5DRqlfw4R9pXiu+zMPKMPA1kBKLBu0PMnPfk6QaQqAowO8gCz8e4luPNg6zPBGAoP4VF6BtqXErNVttjwyvED+X2wPSpEXwqHFfrDgEGc=
 cache:
   directories:
   - node_modules
   - app/node_modules
   - "$HOME/.electron"
   - "$HOME/.npm"
-
 before_install:
 - gem install --no-rdoc --no-ri fpm
-
 install:
 - nvm install $NODE_VERSION
 - npm install npm -g
 - npm prune
 - npm install
-
 script:
 - npm test
 - npm run dist
-
 before_deploy:
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls dist/*-darwin-x64/*.dmg); fi
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export RELEASE_PKG_FILE=$(ls dist/nodecg-dashboard-*-amd64.deb); fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls dist/*-darwin-x64/*.dmg);
+  fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export RELEASE_PKG_FILE=$(ls dist/nodecg-dashboard-*-amd64.deb);
+  fi
 - echo "Deploying $RELEASE_PKG_FILE to GitHub releases"
-
 deploy:
   provider: releases
   api_key:
