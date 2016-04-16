@@ -33,7 +33,7 @@ script:
 - npm run dist
 
 before_deploy:
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls dist/*-darwin-x64/*.dmg"); fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls dist/**/*.dmg"); fi
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export RELEASE_PKG_FILE=$(ls dist/nodecg-dashboard-*-amd64.deb); fi
 - echo "Deploying $RELEASE_PKG_FILE to GitHub releases"
 
