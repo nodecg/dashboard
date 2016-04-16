@@ -46,14 +46,17 @@ install:
 script:
 - npm test
 - npm run dist
-- find ./dist
+- find ./dist/**/*.deb
+- find ./dist/**/*.dmg
+
 branches:
   except:
   - "/^v\\d+\\.\\d+\\.\\d+$/"
 
 before_deploy:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; export RELEASE_PKG_FILE=$(ls dist/nodecg-dashboard-*-amd64.deb); else export RELEASE_PKG_FILE=$(ls dist/NodeCG Dashboard-darwin-x64/NodeCG Dashboard-*.dmg); fi
-  - echo "Deploying $RELEASE_PKG_FILE to GitHub releases"
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls dist/NodeCG Dashboard-darwin-x64/NodeCG Dashboard-*.dmg); fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export RELEASE_PKG_FILE=$(ls dist/nodecg-dashboard-*-amd64.deb); fi
+- echo "Deploying $RELEASE_PKG_FILE to GitHub releases"
 
 deploy:
   provider: releases
