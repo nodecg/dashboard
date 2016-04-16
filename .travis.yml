@@ -27,17 +27,15 @@ script:
 - npm test
 - npm run dist
 before_deploy:
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls dist/*-darwin-x64/*.dmg);
-  fi
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export RELEASE_PKG_FILE=$(ls dist/nodecg-dashboard-*-amd64.deb);
-  fi
-- echo "Deploying $RELEASE_PKG_FILE to GitHub releases"
+- "source .travis_prep_releases.sh"
 deploy:
   provider: releases
   api_key:
     secure: r/v4o1xMg0SpCxnFcYPdzD3UgnCbr8yofkp5jY2JKqX/b4V0HCsJn6bN5KBLOadsiLDI7oUtEefsiI57G3ivZtfEM1IUQDpeGTVEyGzE6zFcRlV8WR484QCuvh16xt2XZbhPVdzePdEZdlP7f9/C09ms4KQOxpElsiPiLNSF1CWcxbvOItMYHgPR8ydyZyiSthsg/ORQWkY2Dg+RipYMHBWBhOMrMlEIzLGua6TgaFCBvcJjfq1MYyLCJf4ZjbWUDhnN8yQd8920gXB6fXf6dpPwrFdWpxaWE0NiDEBMtc2OzDXFtiKYWOwcTVcSZsIE7XYk3X37d8QkADh9WgBdv2OvwPX1CQd/PPvQ9dREsIDpXRNIfL+qbCVR0kO6m0JHkvpQBzUvpqlx0G2YQVBHft67WoZHOgaXoPybpruSQf0XRdKBdAt5UdSz4OzsF5TcndcsZWsj+WyYGvhzOa4KuDDfRpRc3sZJx2u6Htx/GdBAbQs7tHE4DpBAxiie2C80XAvX2mrBFS2nKYrsAZKIRsRL+HJGY8QgAs3j8JHVDJu2ht4EwM/ZzoEwST2wJ0vFS1GXMTAnb8fRC+2XDfJkmej7wLfKYIFPC2SzGHaZD2qrGCHjBU8KpeshpJY8YJcbwofJUgMMUAPVe/EfzlNmPnjmy3qXUFuma8/h0YEDpg4=
   file_glob: true
-  file: "${RELEASE_PKG_FILE}"
+  file:
+    - "${RELEASE_PKG_FILE}"
+    - "${RELEASE_UPDATER_FILE}"
   skip_cleanup: true
   on:
     repo: nodecg/dashboard

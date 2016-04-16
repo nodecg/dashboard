@@ -28,10 +28,14 @@ deploy:
   provider: GitHub
   auth_token:
     secure: QsNzNI+W/pNpsNENqw8K48RZktiuNUmXu7encr+wIg1SbHte4y0tB4Zr38zif1hf
-  artifact: dist\win-x64\*.exe
+  artifacts:
+    - path: dist\win-x64\*.exe
+      name: Installer
+    - path: dist\win-x64\*.nupkg
+      name: Auto-update Package
   draft: true
   prerelease: false
   on:
-    appveyor_repo_tag: true        # deploy on tag push only
+    appveyor_repo_tag: true # deploy on tag push only
 
 test: off
