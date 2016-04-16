@@ -46,8 +46,6 @@ install:
 script:
 - npm test
 - npm run dist
-- find ./dist/**/*.deb
-- find ./dist/**/*.dmg
 
 branches:
   except:
