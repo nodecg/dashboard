@@ -5,11 +5,20 @@ matrix:
   include:
   - os: linux
   - os: osx
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    - llvm-toolchain-precise-3.7
+    packages:
+    - gcc-multilib
+    - g++-multilib
 env:
   global:
   - NODE_VERSION=5
   - secure: UKPjxSAVbim+vHMlDe7a1tR8zcsgt4vPbYGTf1ccsTwmejQWOmLQCxQeZNz77tIU9n4tYQTdDy+UWobAT62JWUW/0KkL3Cb7HlND4o5aJzCsiAymcZ4V1hpYB4mYAVEkclzKVroGLDeZyvc9QKOhpZWJpP4MUz2ReLrCgeNjG4HqhEYKxLodbp7Awze6m3RhUF//vnTXvbjPJ0Dtu5KlZEfMtdAAcjnnkXEdqo8NMkaqi2sfHRZTAllvr7u1JtX0+I8Ruftkb+E7C91kHZP7Gpal3KSvBEvrDcxci4XnKYfCKMVSnH/sI6bGTXfeQjLz31x8UYc5DpHaGzrt0J8lxzXH0WuYi4GyNZ92JE/qbp5qBQ41FnZdO+pRfBNmnt76kY/o7WEKgd7q2vjWZcEkisjw+eUXuEXrmvRFU9Xw7uHmX3KYBrJFmoztUFnXccLzNRnoiRWy7ZdFvSOx9JqnnA4YhxAVEAANjWxUA/bjLUwjfY1yJVRBsWbZEs1prqxKUIFVmGiJFicOSINljG52Q/gkXuyRjAhUHMwg79DKXbOh02fzUig8aOqq9lvZ0upac1AJbUg8Omd4DeNCxMMeyBjW5spwMOBFgZYAsEqBV5+jzaLg+0+4vYtI2t7QeII2GCbgk2y/2akNx5vprgTq913EcTHEmVzs3C75gNTZTY4=
   - secure: GI9pZ0pkgkweS0QAho3kIv663K5s4dDm9ObvvR558BiWfTXYUE5R3ikmeMBF+lo7dsQPvpwX0mUpsccHnxA1NhH/RNHZAfQC34eHM+v+Kbwhpn2ZUK9Kog5NA2JgN/sWf4YvV6E6uPp8vGEwMCZcf8JXvUD001IUR8eAXWC3/ajq/BaAeB6qrOJwZNYNN9sK/BWzfkG3tKnOJ6YAB539oH7LkFyAd2kBAT31dNIEKtem/kE6FEYelPmQqflUW9wldLnvRbQJD2jJl2NJQ+czbqCKkdx41souKTkhMVBwsrNaiZg6h7FS+UT+tmBla15UMDbVw9ywHf+VLzqqPYkLiYOWdC6Tn2/EXLmGNpBnw7KfW8OvCJ+EvVjlkrQfc1Xj+98ph+yKnp7+JDvbATNyUtsLVGyWhdxEXnQH9Tcdx5LzwM4+WDZrOm75ojvBkeHhrD5QWVZR73PSVoZ/A6S+WwCy/H5B5zTLSS8Rbefji3jx9QTMtc3MZHNjhR4HhiMlyyjCufG9CA8GmUi2A9566xCIXg6WvaIzyA7X8VSr6W7NL4yjsCfCaf/OZNGENjY63x5DRqlfw4R9pXiu+zMPKMPA1kBKLBu0PMnPfk6QaQqAowO8gCz8e4luPNg6zPBGAoP4VF6BtqXErNVttjwyvED+X2wPSpEXwqHFfrDgEGc=
+  - secure: M4tpPXfiDHJNtaBCnJWZdVeBHarO8tbL7F3rd2c7sVij3nMat+IONJ0G5yaxmtAb8SZf+2mMxD/2LyxI7k4uPL4jY+wLDI+O+LKwO+v6buy8qL4rQYTcOj6+8o6zf/djRO5klQa1sp8FcqmKQJ61BUIcEfewUor17eCC3WSweLB5OUqjD9U1vsCTvlyYu4+eH6Usa8pWP9UejTnBBpZMZ5H06pguYDTsRF21cB/UmaZJylDyBHeI4gTEnqO6swKWDbgxq1sRBfOwbcjwETREm4y7KxJFFDIUXNmhaR8KrLRxJgxJ01Do2UqB9JJQpIn+BcmewqDNj1fmP7k1AzP7/qIVsmeWIgec3rtEnFfhiBdzQIgnUYtDXyHkXkmlXtJifgx01S1EvLwTQjBaCaMh7UoMaXUE1Pigm5B6iWSU06yDHd9hpLkbz9IQrBHADJQbo0oSnlFdDiAxdp18PPO2IC7WCWwdjrpYGFcSvNjN3rHAIWoF6DIBJMdUByjseboUZEVrTE9aHtU9GCG6Rr62ScCaO6Kn2TQvUFaM5oRvV2Vj8nVuFI4Ithml4g5CfzQeeDD3RXVvWIgRiGoWefIkwLisrlS5XbCSo3tWi2nx3RmKePU/rnLch/VGhRxFrpqIbmHiilDu8D4Le30njmy4fmKA1plqlEhCHmDlPMaNHbw=
 cache:
   directories:
   - node_modules
@@ -26,17 +35,3 @@ install:
 script:
 - npm test
 - npm run dist
-before_deploy:
-- "source .travis_prep_releases.sh"
-deploy:
-  provider: releases
-  api_key:
-    secure: r/v4o1xMg0SpCxnFcYPdzD3UgnCbr8yofkp5jY2JKqX/b4V0HCsJn6bN5KBLOadsiLDI7oUtEefsiI57G3ivZtfEM1IUQDpeGTVEyGzE6zFcRlV8WR484QCuvh16xt2XZbhPVdzePdEZdlP7f9/C09ms4KQOxpElsiPiLNSF1CWcxbvOItMYHgPR8ydyZyiSthsg/ORQWkY2Dg+RipYMHBWBhOMrMlEIzLGua6TgaFCBvcJjfq1MYyLCJf4ZjbWUDhnN8yQd8920gXB6fXf6dpPwrFdWpxaWE0NiDEBMtc2OzDXFtiKYWOwcTVcSZsIE7XYk3X37d8QkADh9WgBdv2OvwPX1CQd/PPvQ9dREsIDpXRNIfL+qbCVR0kO6m0JHkvpQBzUvpqlx0G2YQVBHft67WoZHOgaXoPybpruSQf0XRdKBdAt5UdSz4OzsF5TcndcsZWsj+WyYGvhzOa4KuDDfRpRc3sZJx2u6Htx/GdBAbQs7tHE4DpBAxiie2C80XAvX2mrBFS2nKYrsAZKIRsRL+HJGY8QgAs3j8JHVDJu2ht4EwM/ZzoEwST2wJ0vFS1GXMTAnb8fRC+2XDfJkmej7wLfKYIFPC2SzGHaZD2qrGCHjBU8KpeshpJY8YJcbwofJUgMMUAPVe/EfzlNmPnjmy3qXUFuma8/h0YEDpg4=
-  file_glob: true
-  file:
-    - "${RELEASE_PKG_FILE}"
-    - "${RELEASE_UPDATER_FILE}"
-  skip_cleanup: true
-  on:
-    repo: nodecg/dashboard
-    tags: true

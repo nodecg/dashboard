@@ -7,6 +7,10 @@ cache:
   - '%APPDATA%\npm-cache'
   - '%USERPROFILE%\.electron'
 
+environment:
+  GH_TOKEN:
+    secure: +qlfoqzL101lT4HceVcCuDAHcjAKGHBEExEFpjR7u+Rkl8CK9gD8riudhuXqjnmy
+
 init:
   - git config --global core.autocrlf input
 
@@ -26,15 +30,5 @@ build_script:
 artifacts:
   - path: dist\win-x64\*.exe
   - path: dist\win-x64\*.nupkg
-
-deploy:
-  description: 'NodeCG Dashboard'
-  provider: GitHub
-  auth_token:
-    secure: QsNzNI+W/pNpsNENqw8K48RZktiuNUmXu7encr+wIg1SbHte4y0tB4Zr38zif1hf
-  draft: true
-  prerelease: false
-  on:
-    appveyor_repo_tag: true # deploy on tag push only
 
 test: off
