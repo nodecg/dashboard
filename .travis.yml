@@ -32,7 +32,7 @@ addons:
     - clang-3.7
 
 before_install:
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install git-lfs; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git lfs pull; fi
 - gem install --no-rdoc --no-ri fpm
@@ -51,10 +51,15 @@ branches:
   except:
   - "/^v\\d+\\.\\d+\\.\\d+$/"
 
+before_deploy:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; export RELEASE_PKG_FILE=$(ls dist/nodecg-dashboard-*-amd64.deb); else export RELEASE_PKG_FILE=$(ls dist/NodeCG Dashboard-darwin-x64/NodeCG Dashboard-*.dmg); fi
+  - echo "Deploying $RELEASE_PKG_FILE to GitHub releases"
+
 deploy:
   provider: releases
   api_key:
     secure: r/v4o1xMg0SpCxnFcYPdzD3UgnCbr8yofkp5jY2JKqX/b4V0HCsJn6bN5KBLOadsiLDI7oUtEefsiI57G3ivZtfEM1IUQDpeGTVEyGzE6zFcRlV8WR484QCuvh16xt2XZbhPVdzePdEZdlP7f9/C09ms4KQOxpElsiPiLNSF1CWcxbvOItMYHgPR8ydyZyiSthsg/ORQWkY2Dg+RipYMHBWBhOMrMlEIzLGua6TgaFCBvcJjfq1MYyLCJf4ZjbWUDhnN8yQd8920gXB6fXf6dpPwrFdWpxaWE0NiDEBMtc2OzDXFtiKYWOwcTVcSZsIE7XYk3X37d8QkADh9WgBdv2OvwPX1CQd/PPvQ9dREsIDpXRNIfL+qbCVR0kO6m0JHkvpQBzUvpqlx0G2YQVBHft67WoZHOgaXoPybpruSQf0XRdKBdAt5UdSz4OzsF5TcndcsZWsj+WyYGvhzOa4KuDDfRpRc3sZJx2u6Htx/GdBAbQs7tHE4DpBAxiie2C80XAvX2mrBFS2nKYrsAZKIRsRL+HJGY8QgAs3j8JHVDJu2ht4EwM/ZzoEwST2wJ0vFS1GXMTAnb8fRC+2XDfJkmej7wLfKYIFPC2SzGHaZD2qrGCHjBU8KpeshpJY8YJcbwofJUgMMUAPVe/EfzlNmPnjmy3qXUFuma8/h0YEDpg4=
-  file: dist/**/*.dmg
+  file_glob: true
+  file: "${RELEASE_PKG_FILE}"
   on:
     repo: nodecg/dashboard
