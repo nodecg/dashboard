@@ -23,14 +23,15 @@ build_script:
   - npm test
   - npm run dist
 
+artifacts:
+  - path: dist\win-x64\*.exe
+  - path: dist\win-x64\*.nupkg
+
 deploy:
   description: 'NodeCG Dashboard'
   provider: GitHub
   auth_token:
     secure: QsNzNI+W/pNpsNENqw8K48RZktiuNUmXu7encr+wIg1SbHte4y0tB4Zr38zif1hf
-  artifacts:
-    - path: dist\win-x64\*.exe
-    - path: dist\win-x64\*.nupkg
   draft: true
   prerelease: false
   on:
