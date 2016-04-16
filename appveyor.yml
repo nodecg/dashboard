@@ -30,9 +30,7 @@ deploy:
     secure: QsNzNI+W/pNpsNENqw8K48RZktiuNUmXu7encr+wIg1SbHte4y0tB4Zr38zif1hf
   artifacts:
     - path: dist\win-x64\*.exe
-      name: 'Installer'
     - path: dist\win-x64\*.nupkg
-      name: 'Auto-update Package'
   draft: true
   prerelease: false
   on:
