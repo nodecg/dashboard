@@ -46,6 +46,7 @@ install:
 script:
 - npm test
 - npm run dist
+- ls -l dist
 branches:
   except:
   - "/^v\\d+\\.\\d+\\.\\d+$/"
