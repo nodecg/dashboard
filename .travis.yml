@@ -31,6 +31,7 @@ install:
 script:
 - npm test
 - npm run dist
+- find ./dist
 
 before_deploy:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls dist/NodeCG Dashboard-darwin-x64/NodeCG Dashboard-*.dmg); fi
