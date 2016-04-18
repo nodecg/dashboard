@@ -1,3 +1,5 @@
+version: (Get-Content -Raw -Path package.json | ConvertFrom-Json).version
+
 platform:
   - x64
 
@@ -9,7 +11,7 @@ cache:
 
 environment:
   GH_TOKEN:
-    secure: +qlfoqzL101lT4HceVcCuDAHcjAKGHBEExEFpjR7u+Rkl8CK9gD8riudhuXqjnmy
+    secure: nhMGmGZ2dNrFGEPqE/eDWfHEe0XNMiRDcULDamPndid8JOgbBVZYuMU6l+o5yKlE
 
 init:
   - git config --global core.autocrlf input
@@ -26,9 +28,5 @@ build_script:
   - npm --version
   - npm test
   - npm run dist
-
-artifacts:
-  - path: dist\win-x64\*.exe
-  - path: dist\win-x64\*.nupkg
 
 test: off
