@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const {app, BrowserWindow, Menu, ipcMain} = require('electron');
+const {log} = require('./util');
 
 const URL_PROMPT_WIDTH = 538;
 const URL_PROMPT_HEIGHT = 154;
@@ -13,7 +14,7 @@ const recentUrls = (function () {
 		try {
 			return JSON.parse(fs.readFileSync(recentPath, 'utf-8'));
 		} catch (e) {
-			console.error(e);
+			log(e);
 			return [];
 		}
 	}
@@ -103,7 +104,7 @@ function regenerateMenu() {
 						try {
 							fs.writeFileSync(recentPath, JSON.stringify(recentUrls), 'utf-8');
 						} catch (e) {
-							console.error(e);
+							log(e);
 						}
 
 						mainWindow.webContents.send('loadUrl', url);
@@ -118,7 +119,7 @@ function regenerateMenu() {
 					// Remove the menu from the urlPromptWindow.
 					urlPromptWindow.setMenu(null);
 
-					const promptPath = path.join(__dirname, '/client/url-prompt.html');
+					const promptPath = path.resolve(__dirname, '../client/url-prompt/url-prompt.html');
 					urlPromptWindow.loadURL(`file:///${promptPath}`);
 				}
 			},

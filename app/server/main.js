@@ -26,7 +26,7 @@ app.on('ready', () => {
 		defaultHeight: 600
 	});
 
-	const packagePath = path.join(__dirname, 'package.json');
+	const packagePath = path.resolve(__dirname, '../package.json');
 	const version = require(packagePath).version;
 
 	// Create the browser window using the state information.
@@ -49,12 +49,15 @@ app.on('ready', () => {
 	// Spin up the menu lib
 	require('./menu')(mainWindow);
 
+	// Spin up the autoupdader
+	require('./updater')(mainWindow);
+
 	// Let us register listeners on the window, so we can update the state
 	// automatically (the listeners will be removed when the window is closed)
 	// and restore the maximized or full screen state
 	mainWindowState.manage(mainWindow);
 
 	// and load the index.html of the app.
-	const webviewPath = path.join(__dirname, '/client/webview.html');
+	const webviewPath = path.resolve(__dirname, '../client/main/main.html');
 	mainWindow.loadURL(`file:///${webviewPath}`);
 });

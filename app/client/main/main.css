@@ -77,6 +77,10 @@ body {
 	transform: translateY(16px);
 }
 
+#update {
+	display: none;
+}
+
 webview {
 	position: absolute;
 	top: 0;

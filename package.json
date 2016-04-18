@@ -4,7 +4,7 @@
   "description": "NodeCG Dashboard",
   "devDependencies": {
     "babel-eslint": "^6.0.2",
-    "electron-builder": "^3.6.1",
+    "electron-builder": "git://github.com/electron-userland/electron-builder.git#b7a83402075ffc6f40bcb4a5088dccad505645ec",
     "electron-prebuilt": "~0.37.5",
     "eslint": "^2.7.0",
     "eslint-config-xo": "^0.13.0",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "author": "Alex Van Camp <email@alexvan.camp>",
   "build": {
-    "app-bundle-id": "com.nodecg.dashboard",
+    "app-bundle-id": "org.nodecg.dashboard",
     "app-category-type": "public.app-category.utilities",
     "productName": "NodeCG Dashboard",
     "iconUrl": "https://raw.githubusercontent.com/nodecg/dashboard/master/build/icon.ico",
@@ -45,6 +45,6 @@
     "postinstall": "install-app-deps",
     "pack": "build",
     "dist": "build",
-    "start": "electron app/main.js --enable-logging"
+    "start": "electron app/server/main.js --enable-logging"
   }
 }

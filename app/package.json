@@ -4,6 +4,7 @@
   "description": "A standalone application for displaying a NodeCG Dashboard.",
   "dependencies": {
     "electron-debug": "^0.6.0",
+    "electron-is-dev": "^0.1.0",
     "electron-squirrel-startup": "^0.1.4",
     "electron-window-state": "2.0.0",
     "is-url": "^1.2.1"
@@ -14,5 +15,5 @@
   },
   "license": "MIT",
   "author": "Alex Van Camp <email@alexvan.camp>",
-  "main": "main.js"
+  "main": "server/main.js"
 }
