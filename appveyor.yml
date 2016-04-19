@@ -7,13 +7,7 @@ cache:
   - '%APPDATA%\npm-cache'
   - '%USERPROFILE%\.electron'
 
-environment:
-  GH_TOKEN:
-    secure: nhMGmGZ2dNrFGEPqE/eDWfHEe0XNMiRDcULDamPndid8JOgbBVZYuMU6l+o5yKlE
-  CSC_LINK:
-    secure: Lg1zhuSQkaU/3rt6uwRnPIwOTVsoFeFiZHWw0hrG/NmwNMOgWEsBFWPa6zsXxF3DTZydBgBJkX4IjRcQVJYgUgUpcZgsOv/epsVa48HI9G0=
-  CSC_KEY_PASSWORD:
-    secure: dA6IrWnlJ4VxqELpX+CWz//4n840oG/4JLCqZH67z2XI5IeVWbyL2NuGPs0ULSfo
+# Code signing environment variables are declared in the project settings on AppVeyor.
 
 init:
   - git config --global core.autocrlf input
