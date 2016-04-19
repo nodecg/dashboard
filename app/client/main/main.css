@@ -98,12 +98,16 @@ body {
 #update-now {
 	justify-content: center;
 	align-items: center;
-	height: 27px;
 	border: 1px solid white;
 	border-radius: 2px;
-	padding: 0 22px;
+	padding: 5px 22px;
 	margin-left: 12px;
-	white-space: nowrap;
+}
+
+#update-now:hover,
+#update-later:hover {
+	color: #564573;
+	background-color: white;
 }
 
 #update-later {
@@ -119,6 +123,7 @@ body {
 #update-later {
 	background-color: transparent;
 	color: white;
+	cursor: pointer;
 }
 
 webview {
