@@ -10,6 +10,10 @@ cache:
 environment:
   GH_TOKEN:
     secure: nhMGmGZ2dNrFGEPqE/eDWfHEe0XNMiRDcULDamPndid8JOgbBVZYuMU6l+o5yKlE
+  CSC_LINK:
+    secure: +vJ9f18AhXgMyBkpw70CXpfJsWGCX7nIsxLxktnNQFLjuRGJhWi8hbH4MBlCOdpIX3Xb4TzMdzo4BQ1S+yMYcrMUb5h/r4+KXssPLR13q9A=
+  CSC_KEY_PASSWORD:
+    secure: dA6IrWnlJ4VxqELpX+CWz//4n840oG/4JLCqZH67z2XI5IeVWbyL2NuGPs0ULSfo
 
 init:
   - git config --global core.autocrlf input
