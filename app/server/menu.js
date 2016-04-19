@@ -124,7 +124,7 @@ function regenerateMenu() {
 				}
 			},
 			{
-				label: 'Open recent',
+				label: 'Open Recent',
 				submenu: recentUrls.map((r, index) => {
 					return {
 						label: r.url,
