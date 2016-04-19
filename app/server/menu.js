@@ -2,11 +2,13 @@
 
 const fs = require('fs');
 const path = require('path');
-const {app, BrowserWindow, Menu, ipcMain} = require('electron');
+const {app, BrowserWindow, Menu, ipcMain, shell} = require('electron');
 const {log} = require('./util');
 
 const URL_PROMPT_WIDTH = 538;
 const URL_PROMPT_HEIGHT = 154;
+const ABOUT_WIDTH = 455;
+const ABOUT_HEIGHT = 230;
 const userDataPath = app.getPath('userData');
 const recentPath = path.join(userDataPath, 'recentUrls.json');
 const recentUrls = (function () {
@@ -22,8 +24,9 @@ const recentUrls = (function () {
 	return [];
 })();
 
-let urlPromptWindow;
 let mainWindow;
+let urlPromptWindow;
+let aboutWindow;
 
 module.exports = function (mw) {
 	mainWindow = mw;
@@ -202,7 +205,64 @@ function regenerateMenu() {
 		]
 	};
 
-	const template = [fileTemplate, viewTemplate, windowTemplate];
+	const helpTemplate = {
+		label: 'Help',
+		role: 'help',
+		submenu: [
+			{
+				label: 'About',
+				click() {
+					// Calculate the position of the aboutWindow.
+					// It will appear in the center of the mainWindow.
+					const mainWindowPosition = mainWindow.getPosition();
+					const mainWindowSize = mainWindow.getSize();
+					const x = Math.round(mainWindowPosition[0] + mainWindowSize[0] / 2 - ABOUT_WIDTH / 2);
+					const y = Math.round(mainWindowPosition[1] + mainWindowSize[1] / 2 - ABOUT_HEIGHT / 2);
+
+					// If the aboutWindow is already open, focus and re-center it.
+					if (aboutWindow) {
+						aboutWindow.focus();
+						aboutWindow.setPosition(x, y);
+						return;
+					}
+
+					aboutWindow = new BrowserWindow({
+						x,
+						y,
+						width: ABOUT_WIDTH,
+						height: ABOUT_HEIGHT,
+						useContentSize: true,
+						resizable: false,
+						fullscreen: false,
+						fullscreenable: false,
+						frame: true,
+						minimizable: false,
+						maximizable: false,
+						autoHideMenuBar: true,
+						title: 'About NodeCG Dashboard'
+					});
+
+					aboutWindow.on('closed', () => {
+						aboutWindow = null;
+					});
+
+					// Remove the menu from the aboutWindow.
+					aboutWindow.setMenu(null);
+
+					const promptPath = path.resolve(__dirname, '../client/about/about.html');
+					aboutWindow.loadURL(`file:///${promptPath}`);
+				}
+			},
+			{
+				label: 'Report A Bug',
+				click() {
+					shell.openExternal('https://github.com/nodecg/dashboard/issues/new');
+				}
+			}
+		]
+	};
+
+	const template = [fileTemplate, viewTemplate, windowTemplate, helpTemplate];
 
 	// Add Mac-specific menu items
 	if (process.platform === 'darwin') {
