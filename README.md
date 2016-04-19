@@ -22,3 +22,7 @@ Once installed, the application will autoupdate.
 ## Credits
 Developed by [Alex Van Camp](https://twitter.com/vancamp)  
 Designed by [Chris Hanel](https://twitter.com/chrishanel)
+
+## License
+NodeCG is provided under the MIT license, which is available to read in the 
+[LICENSE](https://github.com/nodecg/dashboard/blob/master/LICENSE) file.
