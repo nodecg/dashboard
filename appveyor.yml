@@ -3,7 +3,7 @@ platform:
 
 cache:
   - node_modules
-  - app\node_modules
+  - 'app\node_modules'
   - '%APPDATA%\npm-cache'
   - '%USERPROFILE%\.electron'
 
