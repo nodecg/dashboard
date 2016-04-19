@@ -1,16 +1,14 @@
 'use strict';
 
 const os = require('os');
-const {app, autoUpdater, ipcMain} = require('electron');
-const {isDev, log} = require('./util');
+const {autoUpdater, ipcMain} = require('electron');
+const {isDev, log, version} = require('./util');
 const UPDATE_SERVER_HOST = 'nodecg-dashboard-nuts.herokuapp.com';
 
 module.exports = function (mainWindow) {
 	if (isDev) {
 		return;
 	}
-
-	const version = app.getVersion();
 
 	autoUpdater.addListener('update-available', () => {
 		log('A new update is available');

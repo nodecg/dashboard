@@ -6,6 +6,7 @@ if (require('electron-squirrel-startup')) {
 
 const path = require('path');
 const {app, BrowserWindow, crashReporter} = require('electron');
+const {version} = require('./util');
 const windowStateKeeper = require('electron-window-state');
 
 require('electron-debug')({showDevTools: false});
@@ -25,9 +26,6 @@ app.on('ready', () => {
 		defaultWidth: 800,
 		defaultHeight: 600
 	});
-
-	const packagePath = path.resolve(__dirname, '../package.json');
-	const version = require(packagePath).version;
 
 	// Create the browser window using the state information.
 	mainWindow = new BrowserWindow({

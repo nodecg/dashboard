@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const isDev = require('electron-is-dev');
 
 let _log = function () {};
@@ -20,6 +21,10 @@ if (isDev) {
 
 module.exports = {
 	isDev,
+	version: (function () {
+		const packagePath = path.resolve(__dirname, '../package.json');
+		return require(packagePath).version;
+	})(),
 	log(...args) {
 		_log(args);
 	}
