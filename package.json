@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "NodeCG Dashboard",
   "devDependencies": {
-    "babel-eslint": "^6.0.2",
+    "babel-eslint": "^6.0.3",
     "electron-builder": "^3.6.1",
     "electron-prebuilt": "~0.37.5",
     "eslint": "^2.7.0",
