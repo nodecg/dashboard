@@ -19,6 +19,13 @@ way that users of older versions of NodeCG access their dashboards.
 Check the [Releases](https://github.com/nodecg/dashboard/releases) page to grab the latest installer for your operating system.
 Once installed, the application will autoupdate.
 
+### NOTICE
+Due to a bug in Squirrel.Windows, the installer currently generates broken shortcuts on Windows.
+To fix the shortcut, do the following:
+1. Right-click on the shortcut and click "Properties"
+2. In the "Target" box, scroll to the end and wrap `NodeCG Dashboard.exe` in quotes (`"NodeCG Dashboard.exe"`).
+3. Click "OK"
+
 ## Credits
 Developed by [Alex Van Camp](https://twitter.com/vancamp)  
 Designed by [Chris Hanel](https://twitter.com/chrishanel)
