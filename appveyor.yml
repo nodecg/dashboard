@@ -7,7 +7,7 @@ cache:
   - '%APPDATA%\npm-cache'
   - '%USERPROFILE%\.electron'
 
-# Code signing environment variables are declared in the project settings on AppVeyor.
+# Deployment & code signing environment variables are declared in the project settings on AppVeyor.
 
 init:
   - git config --global core.autocrlf input
