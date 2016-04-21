@@ -5,15 +5,7 @@
 > A standalone application for displaying a NodeCG Dashboard.
 
 ## Why?
-Chrome 50 was released on April 13th, 2016. It removed the Object.observe method, which NodeCG's Replicant system relies on. 
-NodeCG ships with an Object.observe polyfill that we thought would be enough to keep things working until the new 
-Proxy-based Replicants system was ready, but this was not the case. The polyfill isn't perfect, 
-and as a result some Replicant operations do not function. 
-This effectively means that the NodeCG dashboard no longer works in any browser.
-
-We are working on a new version of NodeCG (v0.8) that will work in Chrome 50.
-Unfortunately, all previous versions will never work in Chrome again. This application will serve as the primary
-way that users of older versions of NodeCG access their dashboards.
+Some people might like this better? That's a great question, honestly.
 
 ## Installation
 Check the [Releases](https://github.com/nodecg/dashboard/releases) page to grab the latest installer for your operating system.
