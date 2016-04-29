@@ -5,7 +5,7 @@
   "devDependencies": {
     "babel-eslint": "^6.0.3",
     "electron-builder": "^3.6.1",
-    "electron-prebuilt": "~0.37.5",
+    "electron-prebuilt": "~0.37.8",
     "eslint": "^2.7.0",
     "eslint-config-xo": "^0.13.0",
     "eslint-plugin-babel": "^3.2.0"
