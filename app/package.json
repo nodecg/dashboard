@@ -1,6 +1,6 @@
 {
   "name": "nodecg-dashboard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A standalone application for displaying a NodeCG Dashboard.",
   "homepage": "https://nodecg.com",
   "dependencies": {
