@@ -1,11 +1,11 @@
 {
   "name": "nodecg-dashboard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "NodeCG Dashboard",
   "devDependencies": {
     "babel-eslint": "^6.0.4",
     "electron-builder": "^3.23.0",
-    "electron-prebuilt": "~1.0.1",
+    "electron-prebuilt": "^1.0.2"
     "eslint": "^2.10.1",
     "eslint-config-xo": "^0.14.1",
     "eslint-plugin-babel": "^3.2.0"
