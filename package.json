@@ -14,7 +14,6 @@
     "type": "git",
     "url": "https://github.com/nodecg/dashboard.git"
   },
-  "license": "MIT",
   "author": "Alex Van Camp <email@alexvan.camp>",
   "build": {
     "app-bundle-id": "org.nodecg.dashboard",

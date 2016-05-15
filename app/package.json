@@ -2,6 +2,7 @@
   "name": "nodecg-dashboard",
   "version": "1.0.0",
   "description": "A standalone application for displaying a NodeCG Dashboard.",
+  "homepage": "https://nodecg.com",
   "dependencies": {
     "electron-debug": "^0.6.0",
     "electron-is-dev": "^0.1.0",
