@@ -16,7 +16,7 @@
   },
   "author": "Alex Van Camp <email@alexvan.camp>",
   "build": {
-    "app-bundle-id": "org.nodecg.dashboard",
+    "appId": "org.nodecg.dashboard",
     "app-category-type": "public.app-category.utilities",
     "productName": "NodeCG Dashboard",
     "iconUrl": "https://raw.githubusercontent.com/nodecg/dashboard/master/build/icon.ico",
