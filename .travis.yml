@@ -5,14 +5,6 @@ matrix:
   include:
   - os: linux
   - os: osx
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    - llvm-toolchain-precise-3.7
-    packages:
-    - gcc-multilib
-    - g++-multilib
 env:
   global:
   - NODE_VERSION=5
