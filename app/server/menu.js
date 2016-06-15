@@ -61,8 +61,8 @@ function regenerateMenu() {
 					// It will appear in the center of the mainWindow.
 					const mainWindowPosition = mainWindow.getPosition();
 					const mainWindowSize = mainWindow.getSize();
-					const x = Math.round(mainWindowPosition[0] + mainWindowSize[0] / 2 - URL_PROMPT_WIDTH / 2);
-					const y = Math.round(mainWindowPosition[1] + mainWindowSize[1] / 2 - URL_PROMPT_HEIGHT / 2);
+					const x = Math.round(mainWindowPosition[0] + (mainWindowSize[0] / 2) - (URL_PROMPT_WIDTH / 2));
+					const y = Math.round(mainWindowPosition[1] + (mainWindowSize[1] / 2) - (URL_PROMPT_HEIGHT / 2));
 
 					// If the urlPromptWindow is already open, focus and re-center it.
 					if (urlPromptWindow) {
@@ -216,8 +216,8 @@ function regenerateMenu() {
 					// It will appear in the center of the mainWindow.
 					const mainWindowPosition = mainWindow.getPosition();
 					const mainWindowSize = mainWindow.getSize();
-					const x = Math.round(mainWindowPosition[0] + mainWindowSize[0] / 2 - ABOUT_WIDTH / 2);
-					const y = Math.round(mainWindowPosition[1] + mainWindowSize[1] / 2 - ABOUT_HEIGHT / 2);
+					const x = Math.round(mainWindowPosition[0] + (mainWindowSize[0] / 2) - (ABOUT_WIDTH / 2));
+					const y = Math.round(mainWindowPosition[1] + (mainWindowSize[1] / 2) - (ABOUT_HEIGHT / 2));
 
 					// If the aboutWindow is already open, focus and re-center it.
 					if (aboutWindow) {
