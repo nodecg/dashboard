@@ -6,7 +6,7 @@
     "babel-eslint": "^6.0.4",
     "electron-builder": "^5.1.0",
     "electron-prebuilt": "1.0.2",
-    "eslint": "^2.12.0",
+    "eslint": "^3.0.0",
     "eslint-config-xo": "^0.15.0",
     "eslint-plugin-babel": "^3.2.0"
   },
