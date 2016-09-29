@@ -45,5 +45,8 @@
     "pack": "build",
     "dist": "build",
     "start": "electron app/server/main.js --enable-logging"
+  },
+  "dependencies": {
+    "eslint": "^3.6.1"
   }
 }

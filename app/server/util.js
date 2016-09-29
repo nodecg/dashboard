@@ -17,7 +17,7 @@ if (isDev) {
 	_log = function (...args) {
 		nsLog(args);
 	};
-}*/
+} */
 
 module.exports = {
 	isDev,
