@@ -17,10 +17,10 @@
   "author": "Alex Van Camp <email@alexvan.camp>",
   "build": {
     "appId": "org.nodecg.dashboard",
-    "app-category-type": "public.app-category.utilities",
     "productName": "NodeCG Dashboard",
     "iconUrl": "https://raw.githubusercontent.com/nodecg/dashboard/master/build/icon.ico",
     "mac": {
+      "category": "public.app-category.utilities",
       "icon-size": 128,
       "contents": [
         {
