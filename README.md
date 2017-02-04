@@ -1,4 +1,6 @@
 # Standalone NodeCG Dashboard
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/nodecg/dashboard.svg)](https://greenkeeper.io/)
 [![Windows status](https://ci.appveyor.com/api/projects/status/jtvfi9yin53y4es1/branch/master?svg=true)](https://ci.appveyor.com/project/Lange/dashboard/branch/master)
 [![Linux & OSX Status](https://travis-ci.org/nodecg/dashboard.svg?branch=master)](https://travis-ci.org/nodecg/dashboard)
 
