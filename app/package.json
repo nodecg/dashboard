@@ -6,7 +6,6 @@
   "dependencies": {
     "electron-debug": "^1.0.0",
     "electron-is-dev": "^0.1.1",
-    "electron-squirrel-startup": "Vj3k0/electron-squirrel-startup#c7831ee",
     "electron-window-state": "^3.0.3",
     "is-url": "^1.2.1"
   },
