@@ -20,8 +20,10 @@
     "productName": "NodeCG Dashboard",
     "iconUrl": "https://raw.githubusercontent.com/nodecg/dashboard/master/build/icon.ico",
     "mac": {
-      "category": "public.app-category.utilities",
-      "icon-size": 128,
+      "category": "public.app-category.utilities"
+    },
+    "dmg": {
+      "iconSize": 128,
       "contents": [
         {
           "x": 425,
