@@ -6,6 +6,8 @@
 
 > A standalone application for displaying a NodeCG Dashboard.
 
+![screenshot](screenshot.png)
+
 ## Motivation
 There was a brief period of time where NodeCG versions prior to 0.7 did not work in the latest version of Chrome. In an attempt to resolve this issue, the NodeCG team simultaneously worked on two separate solutions:
 
