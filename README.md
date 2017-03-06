@@ -6,20 +6,17 @@
 
 > A standalone application for displaying a NodeCG Dashboard.
 
-## Why?
-Some people might like this better? That's a great question, honestly.
+## Motivation
+There was a brief period of time where NodeCG versions prior to 0.7 did not work in the latest version of Chrome. In an attempt to resolve this issue, the NodeCG team simultaneously worked on two separate solutions:
+
+1) Find a working `Object.observe` polyfill that was compatible with NodeCG's use case.
+2) Create a standalone electron application pinned to Chrome 49, the last version to support `Object.observe`.
+
+We wound up having success with finding a working polyfill, and this standalone application ended up not being necessary. For the time being, this standalone app will remain on Chrome 49. At some point in the future, we may decide to drop support for these old versions of NodeCG which don't have the `Object.observe` polyfill. Since 0.7, NodeCG has used `Proxy` instead of `Object.observe`, and works natively in Chrome 49 and newer.
 
 ## Installation
 Check the [Releases](https://github.com/nodecg/dashboard/releases) page to grab the latest installer for your operating system.
 Once installed, the application will autoupdate.
-
-### NOTICE
-Due to a bug in Squirrel.Windows, the installer currently generates broken shortcuts on Windows.
-To fix the shortcut, do the following:
-
-1. Right-click on the shortcut and click "Properties"
-2. In the "Target" box, scroll to the end and wrap `NodeCG Dashboard.exe` in quotes (`"NodeCG Dashboard.exe"`).
-3. Click "OK"
 
 ## Credits
 Developed by [Alex Van Camp](https://twitter.com/vancamp)  
