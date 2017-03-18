@@ -48,7 +48,7 @@ app.on('ready', () => {
 	// and restore the maximized or full screen state
 	mainWindowState.manage(mainWindow);
 
-	// and load the index.html of the app.
+	// And load the index.html of the app.
 	const webviewPath = path.resolve(__dirname, '../client/main/main.html');
 	mainWindow.loadURL(`file:///${webviewPath}`);
 });
