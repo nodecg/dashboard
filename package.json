@@ -18,7 +18,9 @@
   "build": {
     "appId": "org.nodecg.dashboard",
     "productName": "NodeCG Dashboard",
-    "iconUrl": "https://raw.githubusercontent.com/nodecg/dashboard/master/build/icon.ico",
+    "squirrelWindows": {
+      "iconUrl": "https://raw.githubusercontent.com/nodecg/dashboard/master/build/icon.ico"
+    },
     "mac": {
       "category": "public.app-category.utilities"
     },
